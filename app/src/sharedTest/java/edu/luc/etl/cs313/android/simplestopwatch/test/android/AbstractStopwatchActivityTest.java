@@ -28,7 +28,7 @@ public abstract class AbstractStopwatchActivityTest {
      * Verifies that the activity under test can be launched.
      */
     @Test
-    public void testActivityCheckTestCaseSetUpProperly() {
+    public void testActivityCheckTestCaseSetUpProperly() { //checks that activity launched ok, make sure getActivity not null
         assertNotNull("activity should be launched successfully", getActivity());
     }
 
@@ -38,7 +38,7 @@ public abstract class AbstractStopwatchActivityTest {
      * @throws Throwable
      */
     @Test
-    public void testActivityScenarioInit() throws Throwable {
+    public void testActivityScenarioInit() throws Throwable { //makes sure initial displayed value is 0
         getActivity().runOnUiThread(() -> assertEquals(0, getDisplayedValue()));
     }
 
@@ -50,13 +50,13 @@ public abstract class AbstractStopwatchActivityTest {
     @Test
     public void testActivityScenarioRun() throws Throwable {
         getActivity().runOnUiThread(() -> {
-            assertEquals(0, getDisplayedValue());
-            assertTrue(getStartStopButton().performClick());
+            assertEquals(0, getDisplayedValue()); //initial displayed value equals zero
+            assertTrue(getStartStopButton().performClick());//start/stop can be clicked
         });
         Thread.sleep(5500); // <-- do not run this in the UI thread!
-        runUiThreadTasks();
+        runUiThreadTasks(); //there for robolectric
         getActivity().runOnUiThread(() -> {
-            assertEquals(5, getDisplayedValue());
+            assertEquals(5, getDisplayedValue());//assert true that after 5.5 seconds displayed value is 5
             assertTrue(getStartStopButton().performClick());
         });
     }
@@ -69,7 +69,7 @@ public abstract class AbstractStopwatchActivityTest {
      * @throws Throwable
      */
     @Test
-    public void testActivityScenarioRunLapReset() throws Throwable {
+    public void testActivityScenarioRunLapReset() throws Throwable { //runs stopwatch completely through machine/Diagram, continuously checks that correct number displayed,each does something that impacts the display
         getActivity().runOnUiThread(() -> {
             assertEquals(0, getDisplayedValue());
             assertTrue(getStartStopButton().performClick());
