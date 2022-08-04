@@ -13,7 +13,15 @@ class IncrementState implements StopwatchState {
     @Override
     public void onStartStop() {
         sm.actionStop();
-        sm.toAlarmState();
+
+//       sm.toAlarmState();
+//        if(ticks<3){
+//        runningtime++;
+//        while(ticks<3){
+//            ticks++;
+//        }
+//        else sm.runningState();}
+
     }
 
     /*
