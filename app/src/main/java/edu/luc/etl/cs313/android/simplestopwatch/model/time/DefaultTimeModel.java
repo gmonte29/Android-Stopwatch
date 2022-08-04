@@ -27,13 +27,14 @@ public class DefaultTimeModel implements TimeModel {
         return runningTime;
     }
 
+/*
     @Override
     public void setLaptime() {
         lapTime = runningTime;
     }
 
-    @Override
+   @Override
     public int getLaptime() {
         return lapTime;
-    }
+    }*/
 }
