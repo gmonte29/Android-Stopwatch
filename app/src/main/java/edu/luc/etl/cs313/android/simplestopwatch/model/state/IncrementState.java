@@ -39,13 +39,22 @@ class IncrementState implements StopwatchState {
         sm.toIncrementState();
     }
 
+//Old Version being commented out.  We likely have to update the regular UIruntime.  I'll do that below it.
+    /*
     @Override
     public void updateView() {
         sm.updateUILaptime();
     }
+     */
+
+    @Override
+    public void updateView() {
+        sm.updateUIRuntime();
+    }
+
 
     @Override
     public int getId() {
-        return R.string.LAP_RUNNING;
+        return R.string.INCREMENT;
     }
 }
