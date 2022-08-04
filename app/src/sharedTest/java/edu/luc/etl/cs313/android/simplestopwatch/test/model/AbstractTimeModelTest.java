@@ -1,7 +1,7 @@
 package edu.luc.etl.cs313.android.simplestopwatch.test.model;
 
-import static edu.luc.etl.cs313.android.simplestopwatch.common.Constants.SEC_PER_HOUR;
-import static edu.luc.etl.cs313.android.simplestopwatch.common.Constants.SEC_PER_MIN;
+//import static edu.luc.etl.cs313.android.simplestopwatch.common.Constants.SEC_PER_HOUR;
+//import static edu.luc.etl.cs313.android.simplestopwatch.common.Constants.SEC_PER_MIN;
 import static edu.luc.etl.cs313.android.simplestopwatch.common.Constants.SEC_PER_TICK;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -47,8 +47,8 @@ public abstract class AbstractTimeModelTest {
     public void testIncrementRuntimeOne() {
         final var rt = model.getRuntime();
         final var lt = model.getLaptime();
-        model.incRuntime();
-        assertEquals((rt + SEC_PER_TICK) % SEC_PER_MIN, model.getRuntime());
+        model.decRuntime();
+        //assertEquals((rt + SEC_PER_TICK) % SEC_PER_MIN, model.getRuntime());
         assertEquals(lt, model.getLaptime());
     }
 
@@ -59,9 +59,12 @@ public abstract class AbstractTimeModelTest {
     public void testIncrementRuntimeMany() {
         final int rt = model.getRuntime();
         final int lt = model.getLaptime();
+        /*
         for (int i = 0; i < SEC_PER_HOUR; i ++) {
-            model.incRuntime();
+            model.decRuntime();
         }
+
+         */
         assertEquals(rt, model.getRuntime());
         assertEquals(lt, model.getLaptime());
     }
@@ -74,14 +77,14 @@ public abstract class AbstractTimeModelTest {
         final var rt = model.getRuntime();
         final var lt = model.getLaptime();
         for (var i = 0; i < 5; i ++) {
-            model.incRuntime();
+            model.decRuntime();
         }
         assertEquals(rt + 5, model.getRuntime());
         assertEquals(lt, model.getLaptime());
         model.setLaptime();
         assertEquals(rt + 5, model.getLaptime());
         for (var i = 0; i < 5; i ++) {
-            model.incRuntime();
+            model.decRuntime();
         }
         assertEquals(rt + 10, model.getRuntime());
         assertEquals(rt + 5, model.getLaptime());

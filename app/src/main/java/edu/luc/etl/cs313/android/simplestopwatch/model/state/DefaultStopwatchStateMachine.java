@@ -41,7 +41,7 @@ public class DefaultStopwatchStateMachine implements StopwatchStateMachine {
     // these must be synchronized because events can come from the
     // UI thread or the timer thread
     @Override public synchronized void onStartStop() { state.onStartStop(); }
-    @Override public synchronized void onLapReset()  { state.onLapReset(); }
+    //@Override public synchronized void onLapReset()  { state.onLapReset(); }
     @Override public synchronized void onTick()      { state.onTick(); }
 
     @Override public void updateUIRuntime() { listener.onTimeUpdate(timeModel.getRuntime()); }
@@ -50,14 +50,18 @@ public class DefaultStopwatchStateMachine implements StopwatchStateMachine {
     // known states
     private final StopwatchState STOPPED     = new StoppedState(this);
     private final StopwatchState RUNNING     = new RunningState(this);
-    private final StopwatchState LAP_RUNNING = new LapRunningState(this);
-    private final StopwatchState LAP_STOPPED = new LapStoppedState(this);
+
+    //methods below renamed globally
+    private final StopwatchState INCREMENT = new IncrementState(this);
+    private final StopwatchState ALARM = new AlarmState(this);
 
     // transitions
     @Override public void toRunningState()    { setState(RUNNING); }
     @Override public void toStoppedState()    { setState(STOPPED); }
-    @Override public void toLapRunningState() { setState(LAP_RUNNING); }
-    @Override public void toLapStoppedState() { setState(LAP_STOPPED); }
+
+    //methods below renamed globally
+    @Override public void toIncrementState() { setState(INCREMENT); }
+    @Override public void toAlarmState() { setState(ALARM); }
 
     // actions
     @Override public void actionInit()       { toStoppedState(); actionReset(); }
@@ -65,6 +69,6 @@ public class DefaultStopwatchStateMachine implements StopwatchStateMachine {
     @Override public void actionStart()      { clockModel.start(); }
     @Override public void actionStop()       { clockModel.stop(); }
     @Override public void actionLap()        { timeModel.setLaptime(); }
-    @Override public void actionInc()        { timeModel.incRuntime(); actionUpdateView(); }
+    @Override public void actionInc()        { timeModel.decRuntime(); actionUpdateView(); }
     @Override public void actionUpdateView() { state.updateView(); }
 }
