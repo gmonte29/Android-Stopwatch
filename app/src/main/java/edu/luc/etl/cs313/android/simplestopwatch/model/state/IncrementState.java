@@ -12,8 +12,13 @@ class IncrementState implements StopwatchState {
 
     @Override
     public void onStartStop() {
-        sm.actionStop();
 
+        // Changed from "sm.actionStop();"
+        sm.actionInc();
+
+
+
+        //Ryan's previous thought on how to handle clicks and transitioning to the running state.
 //       sm.toAlarmState();
 //        if(ticks<3){
 //        runningtime++;

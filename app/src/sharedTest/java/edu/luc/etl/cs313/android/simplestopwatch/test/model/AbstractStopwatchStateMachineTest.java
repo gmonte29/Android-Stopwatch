@@ -194,10 +194,17 @@ class UnifiedMockDependency implements TimeModel, ClockModel, StopwatchModelList
         runningTime = 0;
     }
 
+
+    //Changed the body from "runningTime++" to "runningTime--"
     @Override
     public void decRuntime() {
-        runningTime++;
+        runningTime--;
     }
+
+    //Needed to be added since we made a new method in the TimeModel interface.
+    @Override
+    public void incRunTime() { runningTime++;}
+
 
     @Override
     public int getRuntime() {
