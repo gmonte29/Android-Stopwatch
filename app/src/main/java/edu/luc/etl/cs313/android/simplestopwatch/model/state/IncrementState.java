@@ -45,7 +45,9 @@ class IncrementState implements StopwatchState {
         //sm.toIncrementState();
         counter++;
         if(counter==3||sm.actionReturn()==99){
-            sm.toRunningState();
+            
+            sm.playAlarm();
+                    sm.toRunningState();
         };
     }
 

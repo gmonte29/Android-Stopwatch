@@ -28,4 +28,6 @@ interface StopwatchSMStateView {
     void updateUIRuntime();
     //void updateUILaptime();
     int actionReturn();
+
+    void playAlarm();
 }

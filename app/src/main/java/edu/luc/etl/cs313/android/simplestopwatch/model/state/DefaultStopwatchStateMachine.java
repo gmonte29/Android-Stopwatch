@@ -1,5 +1,6 @@
 package edu.luc.etl.cs313.android.simplestopwatch.model.state;
 
+import edu.luc.etl.cs313.android.simplestopwatch.android.StopwatchAdapter;
 import edu.luc.etl.cs313.android.simplestopwatch.common.StopwatchModelListener;
 import edu.luc.etl.cs313.android.simplestopwatch.model.clock.ClockModel;
 import edu.luc.etl.cs313.android.simplestopwatch.model.time.TimeModel;
@@ -75,6 +76,8 @@ public class DefaultStopwatchStateMachine implements StopwatchStateMachine {
     @Override public void actionDec()        { timeModel.decRuntime(); actionUpdateView(); }
     @Override public void actionUpdateView() { state.updateView(); }
     @Override  public int actionReturn()     {return timeModel.getRuntime();}
+
+    @Override public void playAlarm()         { ((StopwatchAdapter)listener).playDefaultNotification();}
 
 
 }
