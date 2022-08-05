@@ -8,12 +8,18 @@ class AlarmState implements StopwatchState {
         this.sm = sm;
     }
 
+    private boolean alarmOn=true;
     private final StopwatchSMStateView sm;
 
     @Override
     public void onStartStop() {
-        sm.actionStart();
-        sm.toIncrementState();
+        sm.actionReset();
+//        sm.actionStart();
+//        sm.toIncrementState();
+        //Method to stop alarm
+        alarmOn=false;
+        sm.actionStop();
+        sm.toStoppedState();
     }
 
     /*
@@ -27,7 +33,11 @@ class AlarmState implements StopwatchState {
 
     @Override
     public void onTick() {
-        throw new UnsupportedOperationException("onTick");
+
+        if(alarmOn){
+            //running alarm
+        }
+        //Sound the alarm with alternate sound at every tick.
     }
 
     //Old Version being commented out.  We likely have to update the regular UIruntime.  I'll do that below it.

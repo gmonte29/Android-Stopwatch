@@ -10,12 +10,13 @@ class IncrementState implements StopwatchState {
 
     private final StopwatchSMStateView sm;
 
+    private int counter=0;
     @Override
     public void onStartStop() {
 
         // Changed from "sm.actionStop();"
         sm.actionInc();
-
+        counter=0;
 
 
         //Ryan's previous thought on how to handle clicks and transitioning to the running state.
@@ -40,8 +41,12 @@ class IncrementState implements StopwatchState {
 
     @Override
     public void onTick() {
-        sm.actionInc();
-        sm.toIncrementState();
+        //sm.actionInc();
+        //sm.toIncrementState();
+        counter++;
+        if(counter==3||sm.actionReturn()==99){
+            sm.toRunningState();
+        };
     }
 
 //Old Version being commented out.  We likely have to update the regular UIruntime.  I'll do that below it.

@@ -45,6 +45,8 @@ public class DefaultStopwatchStateMachine implements StopwatchStateMachine {
     @Override public synchronized void onTick()      { state.onTick(); }
 
     @Override public void updateUIRuntime() { listener.onTimeUpdate(timeModel.getRuntime()); }
+
+
     //@Override public void updateUILaptime() { listener.onTimeUpdate(timeModel.getLaptime()); }
 
     // known states
@@ -72,4 +74,7 @@ public class DefaultStopwatchStateMachine implements StopwatchStateMachine {
     @Override public void actionInc()        { timeModel.incRunTime(); actionUpdateView(); }
     @Override public void actionDec()        { timeModel.decRuntime(); actionUpdateView(); }
     @Override public void actionUpdateView() { state.updateView(); }
+    @Override  public int actionReturn()     {return timeModel.getRuntime();}
+
+
 }
