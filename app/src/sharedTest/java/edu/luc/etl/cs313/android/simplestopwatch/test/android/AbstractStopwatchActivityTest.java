@@ -11,7 +11,6 @@ import android.widget.TextView;
 import edu.luc.etl.cs313.android.simplestopwatch.R;
 import edu.luc.etl.cs313.android.simplestopwatch.android.TimerAdapter;
 
-//import static edu.luc.etl.cs313.android.simplestopwatch.common.Constants.SEC_PER_MIN;
 
 /**
  * Abstract GUI-level test superclass of several essential stopwatch scenarios.
@@ -116,7 +115,7 @@ public abstract class AbstractStopwatchActivityTest {
     }
 
     protected Button getStartStopButton() {
-        return getActivity().findViewById(R.id.startStop);
+        return getActivity().findViewById(R.id.multiButton);
     }
 
     /*

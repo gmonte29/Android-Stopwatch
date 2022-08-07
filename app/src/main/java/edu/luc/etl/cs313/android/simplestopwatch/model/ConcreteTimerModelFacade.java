@@ -39,8 +39,8 @@ public class ConcreteTimerModelFacade implements TimerModelFacade {
     }
 
     @Override
-    public void onStartStop() {
-        stateMachine.onStartStop();
+    public void onMultiButton() {
+        stateMachine.onMultiButton();
     }
 
 

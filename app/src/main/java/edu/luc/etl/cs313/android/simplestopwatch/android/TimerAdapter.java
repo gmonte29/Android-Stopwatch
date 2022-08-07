@@ -89,7 +89,7 @@ public class TimerAdapter extends Activity implements TimerModelListener {
 
     // forward event listener methods to the model
     public void onStartStop(final View view) {
-        model.onStartStop();
+        model.onMultiButton();
     }
 
     //Provides an audible alarm

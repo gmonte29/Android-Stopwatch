@@ -15,7 +15,7 @@ class IncrementState implements TimerState {
 
 
     @Override
-    public void onStartStop() {
+    public void onMultiButton() {
         sm.actionInc();
 
         //Resets counter to 0 every time clock is incremented by multi-button click.

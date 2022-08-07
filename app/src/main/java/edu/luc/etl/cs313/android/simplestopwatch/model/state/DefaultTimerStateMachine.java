@@ -41,7 +41,7 @@ public class DefaultTimerStateMachine implements TimerStateMachine {
     // forward event uiUpdateListener methods to the current state
     // these must be synchronized because events can come from the
     // UI thread or the timer thread
-    @Override public synchronized void onStartStop() { state.onStartStop(); }
+    @Override public synchronized void onMultiButton() { state.onMultiButton(); }
     //@Override public synchronized void onLapReset()  { state.onLapReset(); }
     @Override public synchronized void onTick()      { state.onTick(); }
 
@@ -71,12 +71,12 @@ public class DefaultTimerStateMachine implements TimerStateMachine {
     @Override public void actionReset()      { timeModel.resetRuntime(); actionUpdateView(); }
     @Override public void actionStart()      { clockModel.start(); }
     @Override public void actionStop()       { clockModel.stop(); }
-    //@Override public void actionLap()        { timeModel.setLaptime(); }
     @Override public void actionInc()        { timeModel.incRunTime(); actionUpdateView(); }
     @Override public void actionDec()        { timeModel.decRuntime(); actionUpdateView(); }
     @Override public void actionUpdateView() { state.updateView(); }
     @Override  public int actionReturn()     {return timeModel.getRuntime();}
 
+    //New action to play alarm
     @Override public void playAlarm()         { ((TimerAdapter)listener).playDefaultNotification();}
 
 

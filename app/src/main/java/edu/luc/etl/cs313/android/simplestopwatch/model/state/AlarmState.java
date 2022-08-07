@@ -15,7 +15,7 @@ class AlarmState implements TimerState {
     private final TimerSMStateView sm;
 
     @Override
-    public void onStartStop() {
+    public void onMultiButton() {
         //Resets display to 0
         sm.actionReset();
 

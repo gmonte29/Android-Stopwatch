@@ -49,11 +49,11 @@
         android:layout_centerHorizontal="true" >
 
         <Button
-                android:id="@+id/startStop"
+                android:id="@+id/multiButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="onStartStop"
-                android:text="@string/startStop"/>
+                android:text="@string/multiButton"/>
 
     </RelativeLayout>
 
