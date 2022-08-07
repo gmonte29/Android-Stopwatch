@@ -52,8 +52,8 @@
                 android:id="@+id/startStop"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="onMultiButton"
-                android:text="@string/Click"/>
+                android:onClick="onStartStop"
+                android:text="@string/startStop"/>
 
     </RelativeLayout>
 

@@ -6,7 +6,7 @@
     <string name="title_activity_main">Loyola CS 313/413 Stopwatch</string>
 
     <!-- view strings -->
-    <string name="Click">Click Me</string>
+    <string name="startStop">Start/Stop</string>
     <string name="seconds">00</string>
 
     <!-- model state display names -->

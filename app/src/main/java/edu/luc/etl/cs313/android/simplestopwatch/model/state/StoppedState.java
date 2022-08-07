@@ -11,7 +11,7 @@ class StoppedState implements TimerState {
     private final TimerSMStateView sm;
 
     @Override
-    public void onMultiButton() {
+    public void onStartStop() {
 
         //Start the clock
         sm.actionStart();

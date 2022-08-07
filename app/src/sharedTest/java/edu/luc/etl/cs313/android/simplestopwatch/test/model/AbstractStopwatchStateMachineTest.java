@@ -76,7 +76,7 @@ public abstract class AbstractStopwatchStateMachineTest {
         assertTimeEquals(0);
         assertFalse(dependency.isStarted());
         // directly invoke the button press event handler methods
-        model.onMultiButton();
+        model.onStartStop();
         assertTrue(dependency.isStarted());
         onTickRepeat(5);
         assertTimeEquals(5);
@@ -94,7 +94,7 @@ public abstract class AbstractStopwatchStateMachineTest {
         assertTimeEquals(0);
         assertFalse(dependency.isStarted());
         // directly invoke the button press event handler methods
-        model.onMultiButton();
+        model.onStartStop();
         assertEquals(R.string.RUNNING, dependency.getState());
         assertTrue(dependency.isStarted());
         onTickRepeat(5);
@@ -104,7 +104,7 @@ public abstract class AbstractStopwatchStateMachineTest {
         assertTrue(dependency.isStarted());
         onTickRepeat(4);
         assertTimeEquals(5);
-        model.onMultiButton();
+        model.onStartStop();
         assertEquals(R.string.ALARM, dependency.getState());
         assertFalse(dependency.isStarted());
         assertTimeEquals(5);
