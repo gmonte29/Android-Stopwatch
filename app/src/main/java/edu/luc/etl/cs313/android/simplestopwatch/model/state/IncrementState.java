@@ -10,54 +10,34 @@ class IncrementState implements StopwatchState {
 
     private final StopwatchSMStateView sm;
 
+    //Counter variable to determine when to move to running state.
     private int counter=0;
-    @Override
-    public void onStartStop() {
 
-        // Changed from "sm.actionStop();"
+
+    @Override
+    public void onMultiButton() {
         sm.actionInc();
+
+        //Resets counter to 0 every time clock is incremented by multi-button click.
         counter=0;
-
-
-        //Ryan's previous thought on how to handle clicks and transitioning to the running state.
-//       sm.toAlarmState();
-//        if(ticks<3){
-//        runningtime++;
-//        while(ticks<3){
-//            ticks++;
-//        }
-//        else sm.runningState();}
-
     }
 
-    /*
-    @Override
-    public void onLapReset() {
-        sm.toRunningState();
-        sm.actionUpdateView();
-    }
-
-     */
 
     @Override
     public void onTick() {
-        //sm.actionInc();
-        //sm.toIncrementState();
         counter++;
+
+        //Moves to running state if 3 seconds has passed since last multi-button push or display time is set to 99 seconds.
         if(counter==3||sm.actionReturn()==99){
-            
+
+            //Plays audible alert informing the user that the timer is now about to move to the running state and start counting down.
             sm.playAlarm();
-                    sm.toRunningState();
+
+            //Moves us to the running state
+            sm.toRunningState();
         };
     }
 
-//Old Version being commented out.  We likely have to update the regular UIruntime.  I'll do that below it.
-    /*
-    @Override
-    public void updateView() {
-        sm.updateUILaptime();
-    }
-     */
 
     @Override
     public void updateView() {

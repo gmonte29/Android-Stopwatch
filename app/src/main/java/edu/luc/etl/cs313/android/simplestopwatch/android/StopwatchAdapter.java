@@ -21,13 +21,13 @@ import edu.luc.etl.cs313.android.simplestopwatch.model.ConcreteStopwatchModelFac
 import edu.luc.etl.cs313.android.simplestopwatch.model.StopwatchModelFacade;
 
 /**
- * A thin adapter component for the stopwatch.
+ * A thin adapter component for the timer.
  *
  * @author laufer
  */
 public class StopwatchAdapter extends Activity implements StopwatchModelListener {
 
-    private static String TAG = "stopwatch-android-activity";
+    private static String TAG = " timer-android-activity";
 
     /**
      * The state-based dynamic model.
@@ -71,10 +71,8 @@ public class StopwatchAdapter extends Activity implements StopwatchModelListener
         // UI adapter responsibility to schedule incoming events on UI thread
         runOnUiThread(() -> {
             final TextView tvS = findViewById(R.id.seconds);
-            // final TextView tvM = findViewById(R.id.minutes); - removed when deleting the minutes window in display
             final var locale = Locale.getDefault();
             tvS.setText(String.format(locale,"%02d", time % Constants.SEC_MAX));
-            //tvM.setText(String.format(locale,"%02d", time / Constants.SEC_PER_MIN));
         });
     }
 
@@ -83,7 +81,6 @@ public class StopwatchAdapter extends Activity implements StopwatchModelListener
      * @param stateId
      */
     public void onStateUpdate(final int stateId) {
-        // UI adapter responsibility to schedule incoming events on UI thread
         runOnUiThread(() -> {
             final TextView stateName = findViewById(R.id.stateName);
             stateName.setText(getString(stateId));
@@ -92,16 +89,10 @@ public class StopwatchAdapter extends Activity implements StopwatchModelListener
 
     // forward event listener methods to the model
     public void onStartStop(final View view) {
-        model.onStartStop();
+        model.onMultiButton();
     }
 
-    /*
-    //removed since not related
-    public void onLapReset(final View view)  {
-        model.onLapReset();
-    }
-     */
-
+    //Provides an audible alarm
     public void playDefaultNotification() {
         final Uri defaultRingtoneUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         final MediaPlayer mediaPlayer = new MediaPlayer();
