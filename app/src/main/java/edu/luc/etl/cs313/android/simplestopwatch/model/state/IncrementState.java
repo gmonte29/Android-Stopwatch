@@ -2,13 +2,13 @@ package edu.luc.etl.cs313.android.simplestopwatch.model.state;
 
 import edu.luc.etl.cs313.android.simplestopwatch.R;
 
-class IncrementState implements StopwatchState {
+class IncrementState implements TimerState {
 
-    public IncrementState(final StopwatchSMStateView sm) {
+    public IncrementState(final TimerSMStateView sm) {
         this.sm = sm;
     }
 
-    private final StopwatchSMStateView sm;
+    private final TimerSMStateView sm;
 
     //Counter variable to determine when to move to running state.
     private int counter=0;

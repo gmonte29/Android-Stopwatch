@@ -6,6 +6,6 @@ package edu.luc.etl.cs313.android.simplestopwatch.common;
  *
  * @author laufer
  */
-public interface StopwatchModelSource {
-    void setModelListener(StopwatchModelListener listener);
+public interface TimerModelSource {
+    void setModelListener(TimerModelListener listener);
 }

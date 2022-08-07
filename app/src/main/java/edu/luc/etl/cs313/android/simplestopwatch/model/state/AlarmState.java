@@ -2,20 +2,17 @@ package edu.luc.etl.cs313.android.simplestopwatch.model.state;
 
 import edu.luc.etl.cs313.android.simplestopwatch.R;
 
-import java.util.concurrent.TimeUnit;
 
+class AlarmState implements TimerState {
 
-
-class AlarmState implements StopwatchState {
-
-    public AlarmState(final StopwatchSMStateView sm) {
+    public AlarmState(final TimerSMStateView sm) {
         this.sm = sm;
     }
 
     //Counter to play alarm every 3 seconds.
     private int counter=0;
 
-    private final StopwatchSMStateView sm;
+    private final TimerSMStateView sm;
 
     @Override
     public void onMultiButton() {
