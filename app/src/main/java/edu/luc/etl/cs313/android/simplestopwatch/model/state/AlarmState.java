@@ -33,6 +33,9 @@ class AlarmState implements TimerState {
     //Clock ticks play alarm every 3 seconds.
     @Override
     public void onTick() {
+        //One time alarm as soon as alarm state is set.  This is to avoid 3 second delay when first transitioning from Increment to Alarm state.
+        if(counter==0){sm.playAlarm();}
+
         counter++;
 
         //Plays the alarm every 3 seconds

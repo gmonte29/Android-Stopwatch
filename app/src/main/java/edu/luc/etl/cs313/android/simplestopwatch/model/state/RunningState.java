@@ -25,6 +25,7 @@ class RunningState implements TimerState {
 
     @Override
     public void onTick() {
+
         //Decrements the display time by 1 seconds every tick
         sm.actionDec();
 

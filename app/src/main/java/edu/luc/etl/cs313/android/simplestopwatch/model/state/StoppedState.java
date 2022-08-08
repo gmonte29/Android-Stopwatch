@@ -16,6 +16,9 @@ class StoppedState implements TimerState {
         //Start the clock
         sm.actionStart();
 
+        //Increment display time to 1
+        sm.actionInc();
+
         //Transition to the increment state
         sm.toIncrementState();
     }

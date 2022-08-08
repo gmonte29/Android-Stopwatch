@@ -1,6 +1,7 @@
 package edu.luc.etl.cs313.android.simplestopwatch.model.state;
 
 import edu.luc.etl.cs313.android.simplestopwatch.R;
+import edu.luc.etl.cs313.android.simplestopwatch.common.Constants;
 
 class IncrementState implements TimerState {
 
@@ -16,10 +17,14 @@ class IncrementState implements TimerState {
 
     @Override
     public void onMultiButton() {
-        sm.actionInc();
 
-        //Resets counter to 0 every time clock is incremented by multi-button click.
-        counter=0;
+        //Condition to keep display time between 0 and 99.
+        if(sm.actionReturn()>=0 && sm.actionReturn()<Constants.SEC_MAX){
+            sm.actionInc();
+
+            //Resets counter to 0 every time clock is incremented by multi-button click.
+            counter = 0;
+        }
     }
 
 
@@ -28,7 +33,7 @@ class IncrementState implements TimerState {
         counter++;
 
         //Moves to running state if 3 seconds has passed since last multi-button push or display time is set to 99 seconds.
-        if(counter==3||sm.actionReturn()==99){
+        if(counter==3 || sm.actionReturn()==99){
 
             //Plays audible alert informing the user that the timer is now about to move to the running state and start counting down.
             sm.playAlarm();
