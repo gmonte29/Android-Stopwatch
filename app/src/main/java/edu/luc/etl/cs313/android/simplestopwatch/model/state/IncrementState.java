@@ -19,7 +19,7 @@ class IncrementState implements TimerState {
     public void onMultiButton() {
 
         //Condition to keep display time between 0 and 99.
-        if(sm.actionReturn()>=0 && sm.actionReturn()<Constants.SEC_MAX){
+        if(sm.actionReturn() >= 0 && sm.actionReturn() <= Constants.SEC_MAX){
             sm.actionInc();
 
             //Resets counter to 0 every time clock is incremented by multi-button click.
@@ -40,7 +40,7 @@ class IncrementState implements TimerState {
 
             //Moves us to the running state
             sm.toRunningState();
-        };
+        }
     }
 
 
