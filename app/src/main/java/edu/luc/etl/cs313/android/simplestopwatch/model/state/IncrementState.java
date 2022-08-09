@@ -20,6 +20,14 @@ class IncrementState implements TimerState {
 
         //Condition to keep display time between 0 and 99.
         if(sm.actionReturn() >= 0 && sm.actionReturn() <= Constants.SEC_MAX){
+            if(sm.actionReturn()==99) {
+                //Plays audible alert informing the user that the timer is now about to move to the running state and start counting down.
+                sm.playAlarm();
+
+                //Moves us to the running state
+                sm.toRunningState();
+
+            }
             sm.actionInc();
 
             //Resets counter to 0 every time clock is incremented by multi-button click.
@@ -33,7 +41,7 @@ class IncrementState implements TimerState {
         counter++;
 
         //Moves to running state if 3 seconds has passed since last multi-button push or display time is set to 99 seconds.
-        if(counter==3 || sm.actionReturn()==99){
+        if(counter==3){
 
             //Plays audible alert informing the user that the timer is now about to move to the running state and start counting down.
             sm.playAlarm();
