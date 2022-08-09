@@ -5,7 +5,7 @@ package edu.luc.etl.cs313.android.simplestopwatch.common;
  * This interface is typically implemented by the adapter, with the
  * events coming from the model.
  *
- * @author laufer
+ * @author Team 1
  */
 public interface TimerModelListener {
     void onTimeUpdate(int timeValue);

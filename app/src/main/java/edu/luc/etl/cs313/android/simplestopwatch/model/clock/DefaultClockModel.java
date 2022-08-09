@@ -6,7 +6,7 @@ import java.util.TimerTask;
 /**
  * An implementation of the internal clock.
  *
- * @author laufer
+ * @author Team 1
  */
 public class DefaultClockModel implements ClockModel {
 

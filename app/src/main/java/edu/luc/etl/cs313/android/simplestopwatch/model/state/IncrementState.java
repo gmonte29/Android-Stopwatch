@@ -3,6 +3,11 @@ package edu.luc.etl.cs313.android.simplestopwatch.model.state;
 import edu.luc.etl.cs313.android.simplestopwatch.R;
 import edu.luc.etl.cs313.android.simplestopwatch.common.Constants;
 
+/**
+ * Timer state when timer is being incremented up using the clicker.
+ *
+ * @author Team 1
+ */
 class IncrementState implements TimerState {
 
     public IncrementState(final TimerSMStateView sm) {

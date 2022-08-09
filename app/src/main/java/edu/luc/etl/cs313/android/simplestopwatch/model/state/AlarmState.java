@@ -2,7 +2,11 @@ package edu.luc.etl.cs313.android.simplestopwatch.model.state;
 
 import edu.luc.etl.cs313.android.simplestopwatch.R;
 
-
+/**
+ * Timer state when timer counts down all the way to zero.
+ *
+ * @author Team 1
+ */
 class AlarmState implements TimerState {
 
     public AlarmState(final TimerSMStateView sm) {

@@ -23,7 +23,7 @@ import edu.luc.etl.cs313.android.simplestopwatch.model.TimerModelFacade;
 /**
  * A thin adapter component for the timer.
  *
- * @author laufer
+ * @author Team 1
  */
 public class TimerAdapter extends Activity implements TimerModelListener {
 
@@ -92,7 +92,11 @@ public class TimerAdapter extends Activity implements TimerModelListener {
         model.onMultiButton();
     }
 
-    //Provides an audible alarm
+
+    /**
+     * Provides an audible alarm when method is called within IncrementState and AlarmState classes
+     *
+     */
     public void playDefaultNotification() {
         final Uri defaultRingtoneUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         final MediaPlayer mediaPlayer = new MediaPlayer();

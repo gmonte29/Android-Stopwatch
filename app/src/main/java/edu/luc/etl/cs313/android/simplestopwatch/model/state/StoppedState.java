@@ -2,6 +2,12 @@ package edu.luc.etl.cs313.android.simplestopwatch.model.state;
 
 import edu.luc.etl.cs313.android.simplestopwatch.R;
 
+/**
+ * Timer state when timer reaches 0 and is not in alarm state.
+ *
+ * @author Team 1
+ */
+
 class StoppedState implements TimerState {
 
     public StoppedState(final TimerSMStateView sm) {

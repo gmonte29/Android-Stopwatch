@@ -2,6 +2,11 @@ package edu.luc.etl.cs313.android.simplestopwatch.model.state;
 
 import edu.luc.etl.cs313.android.simplestopwatch.R;
 
+/**
+ * Timer state when timer is counting down.
+ *
+ * @author Team 1
+ */
 class RunningState implements TimerState {
 
     public RunningState(final TimerSMStateView sm) {

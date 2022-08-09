@@ -11,7 +11,7 @@ import edu.luc.etl.cs313.android.simplestopwatch.model.time.TimeModel;
 /**
  * An implementation of the model facade.
  *
- * @author laufer
+ * @author Team 1
  */
 public class ConcreteTimerModelFacade implements TimerModelFacade {
 
