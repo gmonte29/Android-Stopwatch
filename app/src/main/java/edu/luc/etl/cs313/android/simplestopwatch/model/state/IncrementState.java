@@ -49,6 +49,7 @@ class IncrementState implements TimerState {
             sm.toRunningState();
 
         }
+
         //Moves to running state if 3 seconds has passed since last multi-button push or display time is set to 99 seconds.
         else if(counter==3){
 
