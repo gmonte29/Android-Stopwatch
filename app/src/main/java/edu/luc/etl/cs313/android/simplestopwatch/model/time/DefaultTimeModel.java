@@ -23,7 +23,7 @@ public class DefaultTimeModel implements TimeModel {
 
     @Override
     public void incRunTime() {
-        runningTime = (runningTime + 1);
+        runningTime = (runningTime + 1) ;
     }
 
 
